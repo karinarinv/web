@@ -1,7 +1,18 @@
-.navbar{
-    background-color: #343a40 !important;
-    padding: 10px;
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+
+
+.navbar {
+  background-color: #5B61B2 !important;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+      
+
+
+
 
 .dropdown-submenu {
   position: relative;
@@ -43,17 +54,137 @@
 }
 
 .navbar-brand {
-    color: #28d1bd;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #EEE2DF;
+  font-family: "Oswald", sans-serif;
   font-size: 2rem;
   font-weight: bold;
 }
 
 .nav-link {
-    color: #58f69c;
+    color: #EEE2DF;
+    font-size: 1.3rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .dropdown-item {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.full-banner {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+.full-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.banner-button {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+  padding: 12px 24px;
+  background-color: #5a5af0;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.banner-button:hover {
+  background-color: #5a5af0;
+}
+
+.the-latest {
+  padding: 30px 50px;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+ border-top: 1px solid #ccc;
+    }
+    
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;                
+  scroll-behavior: smooth;          
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;         
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;                  
+}
+
+
+.card {
+  flex: 0 0 auto;
+  width: 40rem;
+  margin-right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+  border-radius: 50%;
+}
+
+.nav-button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.nav-prev {
+  left: 10px;
+}
+
+.nav-next {
+  right: 10px;
 }
