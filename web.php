@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="web.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+  <link rel="stylesheet" href="web.css" />
   <title>Audiora</title>
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-bar">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container d-flex justify-content-center">
       <a class="navbar-brand" href="#">AUDIORA</a>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -80,5 +80,41 @@
       </div>
     </div>
   </nav>
+  <div class="full-banner">
+ <img src="R47.png" alt="Banner R47" class="banner-img" />
+ <a href="#produk" class="banner-button">Lihat Selengkapnya</a>
+</div>
+ <div class="the-latest">TERBARU</div>
+
+<div class="carousel-container">
+  <button class="nav-button nav-prev" onclick="scrollCarousel(-1)">&#10094;</button>
+  
+  <div class="carousel-track" id="carouselTrack">
+    <div class="card">
+      <img src="miaw.svg" class="card-img-top" alt="aug">
+    </div>
+    <div class="card">
+      <img src="A66.png" class="card-img-top" alt="66">
+    </div>
+    <div class="card">
+      <img src="ier.png" class="card-img-top" alt="ier">
+    </div>
+  </div>
+  
+  <button class="nav-button nav-next" onclick="scrollCarousel(1)">&#10095;</button>
+</div>
+
+<script>
+  function scrollCarousel(direction) {
+    const track = document.getElementById('carouselTrack');
+    const cardWidth = track.querySelector('.card').offsetWidth + 20; 
+    track.scrollBy({
+      left: direction * cardWidth,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+
 </body>
 </html>
