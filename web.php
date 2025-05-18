@@ -72,7 +72,7 @@
               </li>
               <li class="dropdown-submenu">
                 <li class="nav-item">
-                  <a class="nav-link" href="registerr.php">
+                  <a class="nav-link" href="register.php">
                     <i class="bi bi-person me-1"></i>Sign Up
                   </a>
                 </li>
