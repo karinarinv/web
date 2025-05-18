@@ -58,10 +58,26 @@
           </li>
 
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="bi bi-person me-1"></i>Login
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Login
             </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-submenu">
+                <li class="nav-item">
+                  <a class="nav-link" href="login.php">
+                    <i class="bi bi-person me-1"></i>Sign In
+                  </a>
+                </li>
+              </li>
+              <li class="dropdown-submenu">
+                <li class="nav-item">
+                  <a class="nav-link" href="registerr.php">
+                    <i class="bi bi-person me-1"></i>Sign Up
+                  </a>
+                </li>
+              </li>
+            </ul>
           </li>
 
 
