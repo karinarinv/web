@@ -23,42 +23,32 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <ul class="navbar-nav ms-lg-auto me-lg-5 mb-2 mb-lg-0 align-items-lg-center">
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Categories
+  </a>
+  <ul class="dropdown-menu">
+    <li class="dropdown-submenu">
+      <a class="dropdown-item dropdown-toggle" href="#">Earphone</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Bluetooth Earphone</a></li>
+        <li><a class="dropdown-item" href="#">Wired Earphone</a></li>
+        <li><a class="dropdown-item" href="#">Bluetooth Headphone</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#">Speaker</a>
+    </li>
+  </ul>
+</li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Categories
-            </a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Earphone</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Bluetooth Earphone</a></li>
-                  <li><a class="dropdown-item" href="#">Wired Earphone</a></li>
-                  <li><a class="dropdown-item" href="#">Bluetooth Headphone</a></li>
-                  <li><a class="dropdown-item" href="#">Wired Headphone</a></li>
-                  <li><a class="dropdown-item" href="#">Gaming Headphone</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Speaker</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Bluetooth</a></li>
-                  <li><a class="dropdown-item" href="#">Wired Speaker</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
 
 
           <li class="nav-item">
             <a class="nav-link" href="#">About us</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Promo</a>
-          </li>
 
-
-          <li class="nav-item dropdown">
+              <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Login
             </a>
@@ -130,6 +120,47 @@
     });
   }
 </script>
+
+<div class="the-latest">  TERLARIS </div>
+
+
+  <div class="product-list">
+    <div class="product-card">
+      <img src="3pro.png" alt="pro2">
+      <p class="title">Audiora earbuds 3 pro</p>
+      <p class="price">Rp. 3,099,000</p>
+      <p class="rating">★★★★☆</p>
+    </div>
+    <div class="product-card">
+      <img src="airdora.png" alt="air">
+      <p class="title">Airdora Max Wireless</p>
+      <p class="price">Rp. 6,399,000</p>
+      <p class="rating">★★★☆☆</p>
+    </div>
+    <div class="product-card">
+      <img src="2black.png" alt="Speaker">
+      <p class="title">Audiora 2 maxi</p>
+      <p class="price">Rp. 9,399,000</p>
+      <p class="rating">★★★★☆</p>
+    </div>
+    <div class="product-card">
+      <img src="h7.png" alt="game">
+      <p class="title">Indora H7 Wireless</p>
+      <p class="price">Rp. 8,999,000</p>
+      <p class="rating">★★★★☆</p>
+    </div>
+  </div>
+</div>
+
+<div class="the-latest"> OFFERS </div>
+<div class="product-card-horizontal">
+  <img src="reg.png" alt="offer" class="product-image">
+  <div class="product-info">
+    <p class="price">Dapatkan benefitnya</p>
+    <p class="title">Register ke Audiora sekarang!</p>
+    <p class="description">Daftarkan Membership Audiora Anda. Dapatkan berbagai keuntungan eksklusif yang tidak bisa Anda temuin di tempat lain.</p>
+  </div>
+</div>
 
 
 </body>
