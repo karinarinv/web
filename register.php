@@ -19,9 +19,8 @@
             $q = mysqli_query($conn, $query);
 
             if($q) {
-                echo "<script> 
-                    alert('berhasil registrasi')
-                </script>";
+                header("Location: login.php");
+                exit;
             } else {
                 echo "<script> 
                     alert('gagal registrasi')
