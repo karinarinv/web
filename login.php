@@ -25,6 +25,7 @@
     
             if(password_verify($password, $row["password"])) {
                 $_SESSION["login"] = true;
+                $_SESSION["username"] = $username;
 
                 if(isset($_POST["remember"])) {
                     setcookie('id', $row['id'], time() + 60);
@@ -40,6 +41,7 @@
         </script>";
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
