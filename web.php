@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,27 +52,42 @@
             <a class="nav-link" href="about.php">About us</a>
           </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Login
-            </a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-submenu">
+          <?php if (isset($_SESSION["login"])): ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <?= ($_SESSION["username"]); ?>
+              </a>
+              <ul class="dropdown-menu">
                 <li class="nav-item">
-                  <a class="drop-login" href="login.php">
-                    <i class="bi bi-person me-1"></i>Sign In
+                  <a class="drop-login" href="logout.php">
+                    <i class="bi bi-box-arrow-right me-1"></i>Logout
                   </a>
                 </li>
-              </li>
-              <li class="dropdown-submenu">
-                <li class="nav-item">
-                  <a class="drop-login" href="register.php">
-                    <i class="bi bi-person me-1"></i>Sign Up
-                  </a>
+              </ul>
+            </li>
+          <?php else: ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Login
+              </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                  <li class="nav-item">
+                    <a class="drop-login" href="login.php">
+                      <i class="bi bi-person me-1"></i>Sign In
+                    </a>
+                  </li>
                 </li>
-              </li>
-            </ul>
-          </li>
+                <li class="dropdown-submenu">
+                  <li class="nav-item">
+                    <a class="drop-login" href="register.php">
+                      <i class="bi bi-person me-1"></i>Sign Up
+                    </a>
+                  </li>
+                </li>
+              </ul>
+            </li>
+          <?php endif; ?>
 
 
           <li class="nav-item dropdown">
@@ -121,7 +140,7 @@
   }
 </script>
 
-<div class="the-latest">  TERLARIS </div>
+<div class="the-latest"> TERLARIS </div>
 
 
 <div class="product-list">
@@ -142,7 +161,7 @@
       <p class="rating">★★★☆☆</p>
     </div>
   </a>
-
+ 
   <a href="speaker.php" class="text-decoration-none text-dark">
     <div class="product-card">
       <img src="2black.png" alt="Speaker">
@@ -173,9 +192,6 @@
     </div>
   </div>
 </a>
-
-</body>
-</html>
 
 </body>
 </html>
