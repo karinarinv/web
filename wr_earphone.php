@@ -1,16 +1,36 @@
 <?php
 include 'koneksi.php';
 session_start();
-if(!isset($_SESSION["login"])) {
+if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
 
-//ngambil dari tabel
-$query = mysqli_query($conn, "SELECT * FROM wired_earphone");
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["produk_id"])) {
+    $produk_id = $_POST["produk_id"];
+    $result = mysqli_query($conn, "SELECT * FROM wired_earphone WHERE id = $produk_id");
+    $produk = mysqli_fetch_assoc($result);
 
-//ngambil data 
-//$result = mysqli_fetch_assoc($query);
+    if (!isset($_SESSION['keranjang'])) $_SESSION['keranjang'] = [];
+    $keranjang = &$_SESSION['keranjang'];
+
+    if (isset($keranjang[$produk_id])) {
+        $keranjang[$produk_id]['jumlah'] += 1;
+    } else {
+        $keranjang[$produk_id] = [
+            'id' => $produk['id'],
+            'nama' => $produk['nama'],
+            'harga' => $produk['harga'],
+            'gambar' => $produk['gambar'],
+            'jumlah' => 1
+        ];
+    }
+
+    header("Location: wr_earphone.php");
+    exit;
+}
+
+$query = mysqli_query($conn, "SELECT * FROM wired_earphone");
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +41,9 @@ $query = mysqli_query($conn, "SELECT * FROM wired_earphone");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
-    <link rel="stylesheet" href="wr_earphone.css" />
-    <title>Bluetooth Earphone</title>
-</head> 
+    <link rel="stylesheet" href="bt_earphone.css" />
+    <title>wireless Earphone</title>
+</head>
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container d-flex justify-content-center">
@@ -46,9 +66,9 @@ $query = mysqli_query($conn, "SELECT * FROM wired_earphone");
                 <li class="dropdown-submenu">
                     <a class="dropdown-item dropdown-toggle" href="#">Earphone</a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="bt_earphone.php">Bluetooth Earphone</a></li>
+                    <li><a class="dropdown-item" href="bt_earphone.php">wireless Earphone</a></li>
                     <li><a class="dropdown-item" href="wr_earphone.php">Wired Earphone</a></li>
-                    <li><a class="dropdown-item" href="bt_headphone.php">Bluetooth Headphone</a></li>
+                    <li><a class="dropdown-item" href="bt_headphone.php">wireless Headphone</a></li>
 
                     </ul>
                 </li>
@@ -63,58 +83,69 @@ $query = mysqli_query($conn, "SELECT * FROM wired_earphone");
                 <a class="nav-link" href="about.php">About us</a>
             </li>
 
+            <?php if (isset($_SESSION["login"])): ?>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <?= ($_SESSION["username"]); ?>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="drop-login" href="logout.php">
+                    <i class="bi bi-box-arrow-right me-1"></i>Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <?php else: ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Login
-                </a>
-                <ul class="dropdown-menu">
+              </a>
+              <ul class="dropdown-menu">
                 <li class="dropdown-submenu">
-                    <li class="nav-item">
+                  <li class="nav-item">
                     <a class="drop-login" href="login.php">
-                        <i class="bi bi-person me-1"></i>Sign In
+                      <i class="bi bi-person me-1"></i>Sign In
                     </a>
-                    </li>
+                  </li>
                 </li>
                 <li class="dropdown-submenu">
-                    <li class="nav-item">
+                  <li class="nav-item">
                     <a class="drop-login" href="register.php">
-                        <i class="bi bi-person me-1"></i>Sign Up
+                      <i class="bi bi-person me-1"></i>Sign Up
                     </a>
-                    </li>
+                  </li>
                 </li>
-                </ul>
+              </ul>
             </li>
+          <?php endif; ?>
 
-
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-search"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-search">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Go</button>
-                </form>
-                </div>
-            </li>
             </ul>
         </div>
         </div>
     </nav>
     <div class="container mt-4">
+    <h2 class="text-center">wireless Earphone</h2>
+    <a href="keranjang.php" class="btn btn-success mb-3">Lihat Keranjang</a>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php while($row = mysqli_fetch_assoc($query)) { ?>
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <img src="img/<?= $row['gambar']; ?>" class="card-img-top" alt="<?= $row['nama']; ?>" style="height: 200px; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <h5 class="card-title"><?= $row['nama']; ?></h5>
-                        <p class="card-text">Rp <?= number_format($row['harga'], 0, ',', '.'); ?></p>
-                    </div>
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="img/<?= $row['gambar']; ?>" class="card-img-top" style="height: 200px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5><?= $row['nama']; ?></h5>
+                    <p>Rp <?= number_format($row['harga'], 0, ',', '.'); ?></p>
+                    <form method="post">
+                        <input type="hidden" name="produk_id" value="<?= $row['id']; ?>">
+                        <button class="btn btn-primary" type="submit">Tambah ke Keranjang</button>
+                    </form>
                 </div>
             </div>
+        </div>
         <?php } ?>
     </div>
+</div>
+</div>
 </div>
 </div>
 </body>
