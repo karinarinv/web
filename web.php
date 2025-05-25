@@ -192,6 +192,59 @@ session_start();
     </div>
   </div>
 </a>
+<br><br><br>
+  <div class="sub-footer">
+    Terima kasih telah mengunjungi website kami. Temukan produk terbaik dari AUDIORA!
+  </div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-column">
+      <h3>AUDIORA</h3>
+      <p><span class="highlight">Silakan Hubungi Kami :</span></p>
+      <p><span class="highlight">Alamat:</span> Jl Mnuju Surga II Timur No 11<br>
+         London, United Kingdom. 887171</p>
+      <p><span class="highlight">Waktu Operasional:</span> 08:00 – 17:00<br>
+         (Senin - Sabtu)</p>
+      <p><span class="highlight">Email:</span> cs@Audiora.id</p>
+      <p><span class="highlight">Telp/WA:</span> 0823 6666 7718</p>
+    </div>
+
+    <div class="footer-column">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="https://forms.gle/nXuweVaZuu4HbYnY6" target="_blank">Suggestions and Feedback</a></li>
+        <li><a href="https://forms.gle/ZYeh5Aks68s4yhRHA" target="_blank">Book Service Appointment</a></li>
+        <li><a href="war.php" target="_blank">Warranty Information</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="term.php">Terms & Conditions</a></li>
+        <li><a href="privacy.php">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-info">
+      <a href="term.php">Terms & Conditions</a> |
+      <a href="privacy.php">Privacy Policy</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.youtube.com/live/qKDPrvri0V8?si=FfwrRGubLwXBkDQU">YouTube</a>
+      <a href="https://web.facebook.com/SonyIndonesia/?_rdc=1&_rdr#">Facebook</a>
+      <a href="https://x.com/jeteindonesia/status/1894653672443056335">X</a>
+      <a href="https://www.instagram.com/sony/">Instagram</a>
+    </div>
+    <div class="footer-copy">
+      © 2025 AUDIORA INDONESIA. ALL RIGHTS RESERVED.
+    </div>
+  </div>
+</footer>
+
 
 </body>
 </html>
