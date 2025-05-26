@@ -41,8 +41,89 @@ $query = mysqli_query($conn, "SELECT * FROM speaker");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
-    <link rel="stylesheet" href="bt_earphone.css" />
     <title>Bluetooth Earphone</title>
+    <style>
+      .navbar {
+  background-color: #5B61B2 !important;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.dropdown-menu > .dropdown-submenu > .dropdown-item:hover {
+  background-color: #ffffff; 
+  color: #000000;
+}
+
+.dropdown-submenu .dropdown-menu .dropdown-item:hover {
+  background-color: #e9ecef;
+  color: #000000;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-brand {
+  color: #EEE2DF;
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #eee2df;
+  font-size: 1.3rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.drop-login {
+  color: #000000;
+  font-size: 1.0rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.dropdown-item {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+        .btn-keranjang, .btn-tambah {
+            background-color: #5B61B2;
+            border-color: #5B61B2;
+            color: white;
+            font-weight: 600;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .btn-keranjang:hover, .btn-tambah:hover,
+        .btn-keranjang:focus, .btn-tambah:focus {
+            background-color: #8e7f6c;
+            border-color: #8e7f6c;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn i {
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
@@ -125,28 +206,29 @@ $query = mysqli_query($conn, "SELECT * FROM speaker");
         </div>
     </nav>
     <div class="container mt-4">
-    <h2 class="text-center">Bluetooth Earphone</h2>
-    <a href="keranjang.php" class="btn btn-success mb-3">Lihat Keranjang</a>
+    <h2 class="text-center">Speaker</h2>
+    <a href="keranjang.php" class="btn btn-keranjang mb-3">
+        <i class="bi bi-eye-fill"></i> Lihat Keranjang
+    </a>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php while($row = mysqli_fetch_assoc($query)) { ?>
         <div class="col">
             <div class="card h-100 shadow-sm">
-                <img src="img/<?= $row['gambar']; ?>" class="card-img-top" style="height: 200px; object-fit: cover;">
+                <img src="img/<?= htmlspecialchars($row['gambar']); ?>" class="card-img-top" style="height: 200px; object-fit: cover;" alt="<?= htmlspecialchars($row['nama']); ?>">
                 <div class="card-body text-center">
-                    <h5><?= $row['nama']; ?></h5>
+                    <h5><?= htmlspecialchars($row['nama']); ?></h5>
                     <p>Rp <?= number_format($row['harga'], 0, ',', '.'); ?></p>
                     <form method="post">
                         <input type="hidden" name="produk_id" value="<?= $row['id']; ?>">
-                        <button class="btn btn-primary" type="submit">Tambah ke Keranjang</button>
+                        <button class="btn btn-tambah" type="submit">
+                            <i class="bi bi-cart-fill"></i> Tambah ke Keranjang
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
         <?php } ?>
     </div>
-</div>
-</div>
-</div>
 </div>
 </body>
 </html>
