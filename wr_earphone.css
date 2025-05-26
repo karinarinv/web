@@ -1,18 +1,28 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-
-
-
 
 .navbar {
   background-color: #5B61B2 !important;
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-      
 
+.navbar-brand {
+  color: #EEE2DF;
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
 
+.nav-link {
+  color: #e0bfbf;
+  font-size: 1.3rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  transition: color 0.3s ease;
+}
 
+.nav-link:hover {
+  color: #ffffff;
+}
 
 .dropdown-submenu {
   position: relative;
@@ -24,88 +34,71 @@
   margin-top: -1px;
 }
 
-.dropdown-search {
-  min-width: 250px;
-  padding: 10px;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #ffffff;
-}
-
-.dropdown-menu > .dropdown-submenu > .dropdown-item:hover {
-  background-color: #ffffff; 
-  color: #000000;
-}
-
-
-.dropdown-submenu .dropdown-menu .dropdown-item:hover {
-  background-color: #e9ecef;
-  color: #000000;
-}
-
-
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
 }
 
 .dropdown-item {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navbar-brand {
-    color: #EEE2DF;
-  font-family: "Oswald", sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.nav-link {
-    color: #e0bfbf;
-    font-size: 1.3rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.dropdown-item:hover {
+  background-color: #e9ecef;
+  color: #000;
 }
 
 .drop-login {
-  color: #000000;
-  font-size: 1.0rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.dropdown-item {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.3);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  z-index: 10;
-  transition: background 0.3s;
-  border-radius: 50%;
-}
-
-.nav-button:hover {
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.nav-prev {
-  left: 10px;
-}
-
-.nav-next {
-  right: 10px;
+  color: #000;
+  font-size: 1rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
 }
 
 .card-img-top {
-    border-radius: 10px;
+  border-radius: 10px;
+  height: 200px;
+  object-fit: cover;
 }
+
+.card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.3s ease;
+}
+
+
 .card-body {
-    text-align: center;
+  text-align: center;
+}
+
+
+
+.card-body p {
+  font-size: 1rem;
+  color: #555;
+}
+
+
+.btn-tambah,
+.btn-lihat {
+  background-color: #5B61B2;
+  border-color: #5B61B2;
+  color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-tambah:hover,
+.btn-lihat:hover {
+  background-color: #8e7f6c;
+  border-color: #8e7f6c;
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
 }
