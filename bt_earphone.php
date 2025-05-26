@@ -69,7 +69,6 @@ $query = mysqli_query($conn, "SELECT * FROM bluetooth_earphone");
                     <li><a class="dropdown-item" href="bt_earphone.php">Bluetooth Earphone</a></li>
                     <li><a class="dropdown-item" href="wr_earphone.php">Wired Earphone</a></li>
                     <li><a class="dropdown-item" href="bt_headphone.php">Bluetooth Headphone</a></li>
-
                     </ul>
                 </li>
                 <li class="dropdown-submenu">
@@ -78,7 +77,6 @@ $query = mysqli_query($conn, "SELECT * FROM bluetooth_earphone");
                 </ul>
             </li>
 
-
             <li class="nav-item">
                 <a class="nav-link" href="about.php">About us</a>
             </li>
@@ -86,7 +84,7 @@ $query = mysqli_query($conn, "SELECT * FROM bluetooth_earphone");
             <?php if (isset($_SESSION["login"])): ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <?= ($_SESSION["username"]); ?>
+                <?= htmlspecialchars($_SESSION["username"]); ?>
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-item">
@@ -124,29 +122,31 @@ $query = mysqli_query($conn, "SELECT * FROM bluetooth_earphone");
         </div>
         </div>
     </nav>
+
     <div class="container mt-4">
-    <h2 class="text-center">Bluetooth Earphone</h2>
-    <a href="keranjang.php" class="btn btn-success mb-3">Lihat Keranjang</a>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php while($row = mysqli_fetch_assoc($query)) { ?>
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="img/<?= $row['gambar']; ?>" class="card-img-top" style="height: 200px; object-fit: cover;">
-                <div class="card-body text-center">
-                    <h5><?= $row['nama']; ?></h5>
-                    <p>Rp <?= number_format($row['harga'], 0, ',', '.'); ?></p>
-                    <form method="post">
-                        <input type="hidden" name="produk_id" value="<?= $row['id']; ?>">
-                        <button class="btn btn-primary" type="submit">Tambah ke Keranjang</button>
-                    </form>
+        <h2 class="text-center">Bluetooth Earphone</h2>
+        <a href="keranjang.php" class="btn btn-keranjang mb-3">
+            <i class="bi bi-eye me-2"></i> Lihat Keranjang
+        </a>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <?php while($row = mysqli_fetch_assoc($query)) { ?>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/<?= htmlspecialchars($row['gambar']); ?>" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5><?= htmlspecialchars($row['nama']); ?></h5>
+                        <p>Rp <?= number_format($row['harga'], 0, ',', '.'); ?></p>
+                        <form method="post">
+                            <input type="hidden" name="produk_id" value="<?= htmlspecialchars($row['id']); ?>">
+                            <button class="btn btn-keranjang" type="submit">
+                                <i class="bi bi-cart3 me-2"></i> Tambah ke Keranjang
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
-        <?php } ?>
     </div>
-</div>
-</div>
-</div>
-</div>
 </body>
-</html> 
+</html>
